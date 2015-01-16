@@ -27,8 +27,21 @@ echo "## tnsnames.ora built from $PN on $(date '+%Y/%m/%d %H:%M:%S')" >$TNS_FILE
 
 while read DNS SID PORT
 do
-  if [ -n $DNS -o -n $SID ]; then
-    
+  ## Not set PORT, use the default port 1521
+  [ -n $PORT] && PORT=1521
+  
+  echo "## TNS for $DNS" >> $TNS_FILE
+  echo "$DNS=" >> $TNS_FILE
+  echo "(DESCRIPTION = " >> $TNS_FILE
+  echo "  (CONNECT_DATA =" >> $TNS_FILE
+  echo "   (SID = $SID )" >> $TNS_FILE
+  echo "   (SERVER = DEDICATED) " >> $TNS_FILE
+  echo "   )" >> $TNS_FILE
+  echo ")" >> $TNS_FILE
+done < $TNS_FILE
+
+echo "## tnsnames.ora built finished on $(date '+%Y/%m/%d %H:%M:%S')" >> $TNS_FILE
+
   
 
 
