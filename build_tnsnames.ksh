@@ -37,7 +37,7 @@ do
   echo "   (SID = $SID )" >> $TNS_FILE
   echo "   (SERVER = DEDICATED) " >> $TNS_FILE
   echo "   )" >> $TNS_FILE
-  echo ")" >> $TNS_FILE
+  echo -e ")\n" >> $TNS_FILE
 done < $TNS_FILE
 
 echo "## tnsnames.ora built finished on $(date '+%Y/%m/%d %H:%M:%S')" >> $TNS_FILE
