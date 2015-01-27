@@ -37,6 +37,7 @@ do
   echo "(DESCRIPTION = " >> $TNS_FILE
   echo "  (ADDRESS_LIST = " >> $TNS_FILE
   echo "    (ADDRESS = (PROTOCOL = TCP)(HOST = ${HOST} ) (PORT = $PORT ))" >>$TNS_FILE
+  echo "  ) " >>$TNS_FILE
   echo "  (CONNECT_DATA = " >> $TNS_FILE
   echo "   (SID = $SID )" >> $TNS_FILE
   echo "   (SERVER = DEDICATED) " >> $TNS_FILE
